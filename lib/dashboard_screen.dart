@@ -15,7 +15,7 @@ class DashboardScreen extends StatelessWidget {
               onPressed: () {
                  Navigator.push(
                     context,
-                MaterialPageRoute(builder: (context) => ProfileScreen(nama: 'Fawwaz Gibran Sagita Al Firdauss')),
+                MaterialPageRoute(builder: (context) => ProfileScreen(email: 'Fawwaz Gibran Sagita Al Firdauss')),
                );
             }, child: Text('Profile'),
       )

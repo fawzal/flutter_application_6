@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/dashboard_2_screen.dart';
 
 class login2 extends StatefulWidget {
   const login2({super.key});
@@ -22,36 +23,54 @@ tampilPassword (){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          TextField(controller: emailController),
-          TextField(
-            controller: passwordController,
-            obscureText: passwordNyala,
+      appBar: AppBar(title: Text("lOGON"),),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            TextField(controller: emailController,
             decoration: InputDecoration(
-              labelText: "Password",
-              hintText: "Enter Your Password",
+              labelText: "Email",
+              hintText: "Rozi awkowkowk",
               border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30)
+                borderRadius: BorderRadius.circular(30),
               ),
-              prefixIcon: Icon(Icons.lock),
-              suffixIcon: //Icon(passwordNyala ? Icons.visibility : Icons.visibility_off),
-              IconButton(onPressed: (){
-                tampilPassword();
-              }, 
-              icon: Icon(passwordNyala ? Icons.visibility: Icons.visibility_off)
+              prefixIcon: Icon(Icons.mail),
+            ),),
+            SizedBox(height: 8),
+            TextField(
+              controller: passwordController,
+              obscureText: passwordNyala,
+              decoration: InputDecoration(
+                labelText: "Password",
+                hintText: "Enter Your Password",
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30)
+                ),
+                prefixIcon: Icon(Icons.lock),
+                suffixIcon: //Icon(passwordNyala ? Icons.visibility : Icons.visibility_off),
+                IconButton(onPressed: (){
+                  tampilPassword();
+                }, 
+                icon: Icon(passwordNyala ? Icons.visibility: Icons.visibility_off)
+                ),
               ),
             ),
-          ),
-          TextButton(
-            onPressed: () {
-              tampilPassword();
-              print("email = ${emailController.text}");
-            },
-            child: Text("Login"),
-          ),
-        ],
+            TextButton(
+              onPressed: () {
+                tampilPassword();
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder:(context) => Dashboard2Screen(),
+                  ),
+                  );
+                print("email = ${emailController.text}");
+              },
+              child: Text("Login"),
+            ),
+          ],
+        ),
       ),
     );
   }

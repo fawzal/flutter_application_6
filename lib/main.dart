@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/dashboard_2_screen.dart';
 import 'package:flutter_application_6/login_with_state.dart';
+import 'package:flutter_application_6/splash_screen.dart';
 import 'login.dart';
 
-void main() {
+import 'package:get_storage/get_storage.dart';
+
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -32,7 +37,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 69, 116, 255)),
       ),
-      home: LoginScreen()//login2()
+      home: SplashScreen()//login2()
     );
   }
 }
