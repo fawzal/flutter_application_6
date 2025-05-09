@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/dashboard_2_screen.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 
 class login2 extends StatefulWidget {
   const login2({super.key});
@@ -23,7 +25,7 @@ tampilPassword (){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("lOGON"),),
+      appBar: AppBar(title: Text("Subkhan Login"),),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -32,7 +34,7 @@ tampilPassword (){
             TextField(controller: emailController,
             decoration: InputDecoration(
               labelText: "Email",
-              hintText: "Rozi awkowkowk",
+              hintText: "Subkhan Kocak",
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -44,7 +46,7 @@ tampilPassword (){
               obscureText: passwordNyala,
               decoration: InputDecoration(
                 labelText: "Password",
-                hintText: "Enter Your Password",
+                hintText: "Yahaha hayukk",
                 border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30)
                 ),
@@ -59,12 +61,16 @@ tampilPassword (){
             ),
             TextButton(
               onPressed: () {
+                final box = GetStorage();
+                box.write('sudah_login', true);
                 tampilPassword();
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(builder:(context) => Dashboard2Screen(),
-                  ),
-                  );
+                Get.off(() => Dashboard2Screen());
+
+                // Navigator.push(
+                //   context, 
+                //   MaterialPageRoute(builder:(context) => Dashboard2Screen(),
+                //   ),
+                //   );
                 print("email = ${emailController.text}");
               },
               child: Text("Login"),

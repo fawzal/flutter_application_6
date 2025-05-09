@@ -4,7 +4,9 @@ import 'package:flutter_application_6/login_with_state.dart';
 import 'package:flutter_application_6/splash_screen.dart';
 import 'login.dart';
 
+
 import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 
 void main() async {
   await GetStorage.init();
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
